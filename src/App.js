@@ -13,18 +13,31 @@ class App extends React.Component {
   async componentDidMount() {
     const request = await fetch("https://thronesapi.com/api/v2/Characters");
     const response = await request.json();
-    console.log(response);
-
+    // console.log(response);
+    
     this.setState({
-      characters: response.results,
+      characters: response
     });
+    
+  }
+
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("componentDidUpdate");
+    console.log(prevState);
+    console.log(this.state);
   }
   
+  
+  
 	render() {
-		return(
+    console.log(this.state);
+    return(
       <>
 			<h1>Game of thrones</h1>
-      <Character/>
+      <Character
+      />
+
       </>
 		)
 	}
