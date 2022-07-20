@@ -23,8 +23,12 @@ class App extends React.Component {
   }
 
 
-  handleFavoriteClick = () => {
-    
+  handleFavoriteClick = (character) => {
+      const clonedFavorites = [...this.state.favorites, character];
+      clonedFavorites.push(character)
+      this.setState({
+          favorites: clonedFavorites,
+      });
   }
   
   
@@ -35,12 +39,28 @@ class App extends React.Component {
 			<h1 className='title'>Game Of Thrones</h1>
       <div className='row justify-content-center align-items-center'>
       {this.state.characters.map((character) => (
-            <Character
+          <Character
+            key={`${character.fullName}${character.id}`}
             name={character.fullName}
             title={character.title}
             image={character.imageUrl}
-            />  
+            favoriteClick={() => this.handleFavoriteClick(character)}
+            />              
         ))}
+
+        <div>
+          {this.state.favorites.map((favorite) => (
+            <Character
+            key={`${favorite.fullName}${favorite.id}`}
+            name={favorite.fullName}
+            title={favorite.title}
+            image={favorite.imageUrl}
+            />
+        ))}
+        </div>
+        
+
+
       </div>
       </>
 		)
