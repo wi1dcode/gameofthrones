@@ -1,3 +1,4 @@
+import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
 import React from 'react'
 import Character from './component/Character';
 
@@ -7,7 +8,10 @@ class App extends React.Component {
 
     this.state = {
       characters: [],
-      favorites: []
+      continents: [],
+      favorites: [],
+      currentView: "Continents"
+
     }
   }
 
@@ -16,8 +20,12 @@ class App extends React.Component {
     const response = await request.json();
     // console.log(response);
     
+    const requestContinents = await fetch("https://thronesapi.com/api/v2/Continents");
+    const responseContinents = await responseContinents.json();
+
+    
     this.setState({
-      characters: response
+      characters: response, continents: responseContinents
     });
     
   }
@@ -25,7 +33,6 @@ class App extends React.Component {
 
   handleFavoriteClick = (character) => {
       const clonedFavorites = [...this.state.favorites, character];
-      clonedFavorites.push(character)
       this.setState({
           favorites: clonedFavorites,
       });
@@ -38,17 +45,37 @@ class App extends React.Component {
       <>
 			<h1 className='title'>Game Of Thrones</h1>
       <div className='row justify-content-center align-items-center'>
-      {this.state.characters.map((character) => (
-          <Character
-            key={`${character.fullName}${character.id}`}
-            name={character.fullName}
-            title={character.title}
-            image={character.imageUrl}
-            favoriteClick={() => this.handleFavoriteClick(character)}
-            />              
-        ))}
 
-        <div>
+      <button onClick={() => this.handleCurrentViewChange("continents")} className='btn btn-success'>Continents</button>
+      <button onClick={() => this.handleCurrentViewChange("characters")} className='btn btn-success'>Characters</button>
+      <button onClick={() => this.handleCurrentViewChange("favorites")} className='btn btn-success'>Favorites</button>
+
+      {this.state.currentView === "continents" && (
+        <>
+           <h2>Continents</h2>
+            <div>
+              sd
+            </div>
+        </>
+      )}
+     
+
+      {this.state.currentView === "characters" && (
+          <>{this.state.characters.map((character) => (
+            <Character
+              key={`${character.fullName}${character.id}`}
+              name={character.fullName}
+              title={character.title}
+              image={character.imageUrl}
+              favoriteClick={() => this.handleFavoriteClick(character)}
+              />  
+              </>
+                       
+          ))}
+      )}
+     
+          {this.state.currentView === "favorites" && ( 
+            <div>
           {this.state.favorites.map((favorite) => (
             <Character
             key={`${favorite.fullName}${favorite.id}`}
@@ -58,7 +85,7 @@ class App extends React.Component {
             />
         ))}
         </div>
-        
+          )}
 
 
       </div>
