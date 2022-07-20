@@ -6,7 +6,8 @@ class App extends React.Component {
     super()
 
     this.state = {
-      characters: []
+      characters: [],
+      favorites: []
     }
   }
 
@@ -22,22 +23,25 @@ class App extends React.Component {
   }
 
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("componentDidUpdate");
-    console.log(prevState);
-    console.log(this.state);
+  handleFavoriteClick = () => {
+    
   }
   
   
-  
 	render() {
-    console.log(this.state);
+    console.log(this);
     return(
       <>
-			<h1>Game of thrones</h1>
-      <Character
-      />
-
+			<h1 className='title'>Game Of Thrones</h1>
+      <div className='row justify-content-center align-items-center'>
+      {this.state.characters.map((character) => (
+            <Character
+            name={character.fullName}
+            title={character.title}
+            image={character.imageUrl}
+            />  
+        ))}
+      </div>
       </>
 		)
 	}

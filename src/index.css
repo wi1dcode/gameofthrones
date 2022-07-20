@@ -5,9 +5,60 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', sans-serif;
+  background: no-repeat url(https://wallpaperaccess.com/full/1578547.jpg) fixed;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+
+
+.row {
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  color: white;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+}
+
+.card_got {
+  background: rgba(119, 119, 119, 0.0.5);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  max-width: 30%;
+  text-align: center;
+}
+
+
+.card_title {
+  font-weight: bold;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card_name {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+}
+
+.card_img {
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  filter: brightness(0.8);
+  /* box-shadow: inset 0px 0px 20px 20px #000; */
 }
