@@ -55,13 +55,85 @@ code {
 }
 
 .card_img {
+  background-position: center;  
   background-size: cover;
   background-repeat: no-repeat;
-  
-  width: 300px;
+  width: 350px;
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 10px;
   filter: brightness(0.8);
   /* box-shadow: inset 0px 0px 20px 20px #000; */
+}
+
+
+.btn_menu {
+  border: 2px rgb(255, 255, 255) solid;
+  color: white;
+  font-weight: bold;
+  background: rgba(119, 119, 119, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  width: 150px;
+  height: 35px;
+}
+
+.btn_fav {
+  border: 2px rgb(255, 255, 255) solid;
+  color: white;
+  font-weight: bold;
+  background: rgba(119, 119, 119, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  width: 60px;
+  height: 40px;
+  font-size: 25px;
+}
+
+
+.btn_fav:hover {
+  /* font-size: 25px; */
+}
+
+.btn_fav:active {
+  background: rgba(182, 182, 182, 0.3);
+}
+
+.btn_cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-direction: row;  
+}
+
+.btn_menu:hover {
+  font-size: 17px;
+}
+
+.btn_menu:active {
+  background: rgba(182, 182, 182, 0.3);
+}
+
+.cont_title {
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.conts {
+  text-align: center;
+}
+
+
+.conts_cont {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.carte {
+  width: 800px;
 }
