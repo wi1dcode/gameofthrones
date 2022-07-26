@@ -1,10 +1,7 @@
 # Just Game of Thrones web application with function "Favorite character"
 
 Instructions for install
-### `npm install`
-### `npm start`
-
-
+### `git clone > npm install > npm start`
 
 ## What does it look like?
 
